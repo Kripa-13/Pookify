@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="style.css"> 
+   <link rel="stylesheet" href="utility.css">
+   <link rel="icon" href="data:,">
+   <title>POOKIFY - Your favourite music is here</title>
+</head>
+<body>
+  <body class="bg-black"> <div class="container flex bg-black p-1">
+    <div class="left">
+       <div class="home bg-grey rounded m-1 p-1">
+    <div class="logo"><img src="logo.png" class="invert" alt="spotify"></div>
+    <ul>
+        <li class="flex items-center gap-1"><img class="invert" src="home.png" alt="home">Home</li>
+        <li class="flex items-center gap-1">
+            <img class="invert" src="search.jpg" alt="search">
+            <input type="text" id="searchBar" placeholder="Search songs..." 
+                   style="background: transparent; border: none; color: white; outline: none;">
+        </li>
+    </ul>
+</div>
+
+        <div class="library bg-grey rounded m-1 p-1">
+    <div class="heading flex items-center gap-1">
+        <img class="invert" src="library.jpg" alt="library">
+        <h2>Your Library</h2>
+    </div>
+
+    <div class="songlist">
+        <ul>
+            </ul>
+    </div>
+</div>
+        
+        <div class="footer">
+    <div class="footer-links">
+        <a href="#">Legal</a>
+        <a href="#">Privacy Center</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Cookies</a>
+        <a href="#">About Ads</a>
+        <a href="#">Accessibility</a>
+    </div>
+    <a href="#" class="cookie-link">Cookies</a>
+</div>
+    </div>
+
+   <div class="right bg-grey rounded m-1">
+    <div class="header flex justify-between items-center p-1">
+        <div class="nav-arrows flex gap-1">
+            <div class="arrow rounded-full flex items-center justify-center">&lt;</div>
+            <div class="arrow rounded-full flex items-center justify-center">&gt;</div>
+        </div>
+        
+        <div class="buttons flex items-center gap-1">
+            <button class="signup-btn">Sign up</button>
+            <button class="login-btn">Log in</button>
+        </div>
+    </div>
+
+    <div class="spotify-playlists p-1">
+        <h1>POOKIFY Playlists</h1>
+    <div class="cardContainer" id="cardContainer"></div>
+    
+
+
+</div>    
+
+   <div class="playbar">
+    <div class="song-info">
+        <img id="song-info-img" src="download.jpg" alt="Album Art">
+        
+        <div class="song-details">
+            <div id="song-info-title" class="song-title">Certified Bangers</div>
+            
+            <div id="song-info-artist" class="song-artist">Various Artists</div>
+        </div>
+    </div>
+
+
+    <div class="controls">
+        <div class="control-buttons">
+            <span id="prev" class="control-icon">⏮</span>
+            <span id="play-main" class="control-icon">▶</span> 
+            <span id="next" class="control-icon">⏭</span>
+        </div>
+        
+        <div class="progress-bar">
+            <span class="songtime">0:00</span>
+            <div class="bar-bg">
+                <div class="bar-fill" style="width: 0%;"></div>
+                <input type="range" id="progressBar" min="0" max="100" value="0">
+            </div>
+            <span class="total-time">3:45</span>
+        </div>
+    </div>
+
+    <div class="volume-controls">
+        <span class="volume-icon">🔊</span>
+        <div class="volume-bar-bg">
+            <div class="volume-bar-fill" style="width: 50%;"></div>
+            <input type="range" id="volumeBar" min="0" max="100" value="50">
+        </div>
+    </div>
+</div>
+    
+</div>        
+</div>
+</div>
+<audio id="audio-player"></audio>
+<script src="script.js"></script>
+</body>
+</html>
