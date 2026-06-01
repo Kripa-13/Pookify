@@ -666,3 +666,53 @@ h1 {
 .track-row.active .play-btn {
   opacity: 1; /* Always show play/pause if it's the active track */
 }
+/* --- Mobile Responsive Styles (Screens smaller than 768px) --- */
+@media (max-width: 768px) {
+    /* 1. Make the main wrapper stack vertically instead of side-by-side */
+    .container {
+        flex-direction: column;
+        height: auto;
+        padding: 5px;
+    }
+
+    /* 2. Adjust the left sidebar for mobile */
+    .left {
+        width: 100% !important; /* Take full width on mobile */
+        position: static;
+        margin-bottom: 10px;
+    }
+
+    /* 3. Adjust the right main area for mobile */
+    .right {
+        width: 100% !important;
+        margin: 0;
+        min-height: 70vh;
+    }
+
+    /* 4. Make the playlist grid adapt to smaller screens */
+    .cardContainer, .card-container {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)) !important;
+        justify-content: center;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .card {
+        width: auto !important;
+        max-width: 100%;
+    }
+
+    /* 5. Adjust the bottom playbar text sizes so they fit perfectly */
+    .playbar {
+        flex-direction: column;
+        gap: 10px;
+        height: auto;
+        padding: 15px;
+    }
+
+    .songinfo, .songbuttons, .timevol {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+}
