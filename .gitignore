@@ -1,0 +1,13 @@
+# Ignore Python virtual environments
+.venv/
+venv/
+__pycache__/
+
+# Ignore heavy audio/media files
+*.mp3
+*.wav
+*.mp4
+
+# Ignore heavy Machine Learning models and datasets
+*.pkl
+*.csv

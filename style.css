@@ -13,8 +13,28 @@ h2 {
     padding: 0;
     box-sizing: border-box;
 }
-body{
-    background-color: antiquewhite;
+/* --- Liquid Animated Gradient --- */
+body {
+    /* Define the colors: Dark Grey, Deep Violet, Almost Black, Dark Magenta */
+    background: linear-gradient(-45deg, #0a0a0c, #1a1525, #0a0a0c, #2d182b);
+    
+    /* Make the background massive so we can pan across it */
+    background-size: 400% 400%;
+    
+    /* Tie it to the animation below */
+    animation: liquidGradient 15s ease infinite;
+    
+    color: white;
+    /* Ensure it covers the whole screen perfectly */
+    min-height: 100vh;
+    background-attachment: fixed;
+}
+
+/* The animation that pans the massive background */
+@keyframes liquidGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 /* Ensure the sidebar has some breathing room */
 .logo img {
@@ -198,20 +218,25 @@ h1 {
 }
 
 .card {
-    position: relative; /* THIS IS THE MOST IMPORTANT LINE */
+    position: relative; 
     width: 180px; 
-    background-color: #181818;
+    
+    /* THE VISIBLE CHANGE: Glassmorphism with a pink border */
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 192, 203, 0.2) !important; 
+    
     padding: 15px;
-    border-radius: 8px;
+    border-radius: 16px !important; /* Rounder corners */
     cursor: pointer;
-    transition: all 1s ease-out;
-    overflow:hidden;
+    transition: all 0.3s ease-out;
+    overflow: hidden;
 }
 
 .card:hover {
-    background-color: #282828; /* Highlights on hover */
+    background-color: rgba(255, 192, 203, 0.1) !important; /* Glows pink on hover */
+    border: 1px solid rgba(255, 192, 203, 0.6) !important;
+    transform: translateY(-8px);
 }
-
 .card img {
     width: 100%;
     aspect-ratio: 1/1;
@@ -494,4 +519,150 @@ h1 {
     padding: 8px;
     border-radius: 4px;
     border: 1px solid #333;
+}
+/* --- Spinning Vinyl Record Animation --- */
+@keyframes spinRecord {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.playing-spin {
+    /* Spins perfectly in a 4-second loop */
+    animation: spinRecord 4s linear infinite; 
+    
+    /* Forces the square image to become a perfect circle */
+    border-radius: 50% !important; 
+    
+    /* Adds a pulsing pink shadow to match your theme */
+    box-shadow: 0 0 15px rgba(255, 192, 203, 0.6);
+}
+/* --- Active Playing Track in Library --- */
+.songlist ul li.active-track {
+    /* Gives it a soft pink background */
+    background: rgba(255, 192, 203, 0.25) !important; 
+    
+    /* Adds a solid pink bar on the left side to show it's selected */
+    border-left: 4px solid #ffc0cb; 
+    
+    /* Slightly pushes it to the right for a 3D pop effect */
+    transform: translateX(5px);
+}
+
+/* Make the title text turn pink when active */
+.songlist ul li.active-track .info div {
+    color: #ffc0cb;
+    font-weight: bold;
+}
+
+/* Hide the "Play Now" text and just show the icon on the active track */
+.songlist ul li.active-track .playnow span {
+    display: none; 
+}
+.your-song-title-class {
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%; /* Ensure it spans the width of its parent */
+    display: block;
+}
+/* ========================================= */
+/* NEW LIBRARY TRACK UI (Options 4 & 5)      */
+/* ========================================= */
+
+.track-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 6px; 
+  background-color: transparent; 
+  color: white;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  margin-bottom: 4px;
+  border: 1px solid transparent; /* Keeps layout stable on hover */
+}
+
+.track-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  overflow: hidden; /* Helps with text truncation */
+}
+
+.text-content {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.song-title {
+  font-size: 0.95rem;
+  font-weight: 500;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.playlist-name {
+  color: #b3b3b3; 
+  font-size: 0.8rem;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* --- Action Buttons Layout --- */
+.track-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  color: #b3b3b3;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.1s ease;
+  padding: 0;
+}
+
+.action-btn:hover {
+  color: white;
+  transform: scale(1.15); /* Tiny pop effect when hovered */
+}
+
+/* --- Hover & Active States --- */
+.track-row:hover {
+  background-color: rgba(255, 255, 255, 0.05); /* Matches your glassmorphism */
+  border: 1px solid rgba(255, 192, 203, 0.2); /* POOKIFY pink border */
+}
+
+/* Hide Play Button by Default, Show on Hover */
+.play-btn {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.track-row:hover .play-btn {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* The "Active" State (Currently Playing) */
+.track-row.active {
+  background: rgba(255, 192, 203, 0.15); /* Soft pink background */
+  border-left: 4px solid #ffc0cb; /* Pink indicator bar */
+}
+
+.track-row.active .song-title {
+  color: #ffc0cb; /* POOKIFY Pink text */
+  font-weight: bold;
+}
+
+.track-row.active .play-btn {
+  opacity: 1; /* Always show play/pause if it's the active track */
 }

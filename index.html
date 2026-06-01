@@ -14,7 +14,7 @@
        <div class="home bg-grey rounded m-1 p-1">
     <div class="logo"><img src="logo.png" class="invert" alt="spotify"></div>
     <ul>
-        <li class="flex items-center gap-1"><img class="invert" src="home.png" alt="home">Home</li>
+        <li class="flex items-center gap-1" onclick="renderHomeView()" style="cursor: pointer; transition: color 0.2s ease;"><img class="invert" src="home.png" alt="home">Home</li>
         <li class="flex items-center gap-1">
             <img class="invert" src="search.jpg" alt="search">
             <input type="text" id="searchBar" placeholder="Search songs..." 
@@ -31,7 +31,37 @@
 
     <div class="songlist">
         <ul>
-            </ul>
+            <li class="track-row">
+              <div class="track-info">
+                <img src="download.jpg" alt="Album Art" class="album-art" style="width: 40px; height: 40px; border-radius: 4px;">
+                <div class="text-content">
+                  <span class="song-title">Tum Se Hi - Jab We Met</span>
+                  <span class="playlist-name">Butterflies and Beats</span>
+                </div>
+              </div>
+              <div class="track-actions">
+                <button class="action-btn like-btn" title="Save to Liked Songs">♡</button>
+                <button class="action-btn play-btn" title="Play">▶</button>
+                <button class="action-btn more-btn" title="More options">⋮</button>
+              </div>
+            </li>
+
+            <li class="track-row">
+              <div class="track-info">
+                <img src="download.jpg" alt="Album Art" class="album-art" style="width: 40px; height: 40px; border-radius: 4px;">
+                <div class="text-content">
+                  <span class="song-title">Zara Sa - Jannat</span>
+                  <span class="playlist-name">Butterflies and Beats</span>
+                </div>
+              </div>
+              <div class="track-actions">
+                <button class="action-btn like-btn" title="Save to Liked Songs">♡</button>
+                <button class="action-btn play-btn" title="Play">▶</button>
+                <button class="action-btn more-btn" title="More options">⋮</button>
+              </div>
+            </li>
+            
+        </ul>
     </div>
 </div>
         
@@ -56,6 +86,10 @@
         </div>
         
         <div class="buttons flex items-center gap-1">
+            <button id="smart-mix-btn" onclick="generatePredictiveMix()" style="background-color: #ffc0cb; color: black; padding: 10px 20px; border-radius: 20px; border: none; cursor: pointer; font-weight: bold; margin-right: 15px;">
+                ✨ Generate Smart Mix
+            </button>
+            
             <button class="signup-btn">Sign up</button>
             <button class="login-btn">Log in</button>
         </div>
